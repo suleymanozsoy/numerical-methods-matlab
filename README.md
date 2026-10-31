@@ -1,59 +1,111 @@
-# Lotka-Volterra Predator-Prey Model
+# Numerical Methods with MATLAB
 
-## Overview
+A collection of MATLAB implementations exploring numerical methods, mathematical modeling, and ordinary differential equations .
 
-This project implements a numerical simulation of the **Lotka-Volterra predator-prey model** using MATLAB.
+The goal of this repository is to understand how mathematical problems can be translated into numerical algorithms, implemented in code and analyzed through simulations.
 
-The Lotka-Volterra equations describe how two interacting populations, predators and prey, change over time.
+## Projects
 
-The main purpose of this project is to implement and explore two numerical methods for solving systems of ordinary differential equations.
+### 1. Lotka–Volterra Predator – Prey Model
 
-## Mathematical Model
+**File:** [lotka_volterra.m](./lotka_volterra.m)
 
-The Lotka-Volterra model consists of two differential equations:
+A numerical simulation of the interaction between predator and prey populations.
 
-**dx/dt = αx − βxy**
+**Mathematical model:**
 
-**dy/dt = δxy − γy**
+- `dx/dt = x(1 - y)`
+- `dy/dt = y(x - 1)`
+
+Where `x` represents the prey population and `y` represents the predator population.
+
+**Implemented methods:**
+- Euler's Method
+- Fourth-Order Runge–Kutta (RK4)
+
+**Features:**
+- Numerical solutions of a coupled ordinary differential equation system
+
+- Simulations with different initial conditions
+
+- Population vs. time plots
+
+- Phase portrait visualization
+
+- Graph and PDF exports
+
+This project explores how numerical methods approximate population dynamics and how different initial conditions affect the resulting trajectories.
+
+### 2. Falling Parachutist — Euler's Method
+
+**File:** [parachutist_euler.m](./parachutist_euler.m)
+
+A numerical simulation of a parachutist falling under gravity and linear air resistance.
+
+**Mathematical model:**
+
+`dv/dt = g - (c/m)v`
 
 Where:
+- `v` — Velocity (m/s)
+- `g` — Gravitational acceleration (m/s²)
+- `m` — Mass (kg)
+- `c` — Air resistance coefficient (kg/s)
 
-- **x:** Prey population
-- **y:** Predator population
-- **α:** Prey growth rate
-- **β:** Predation rate
-- **γ:** Predator mortality rate
-- **δ:** Predator reproduction rate
+**Analytical solution:**
 
-## Numerical Methods
+`v(t) = (mg/c)(1 - exp(-ct/m))`
 
-Two numerical methods are implemented in MATLAB:
+**Euler's Method:**
 
-### 1. Euler Method
-A first-order numerical method that approximates the solution using the derivative at the current point.
+`v(i+1) = v(i) + (g - (c/m)v(i)) * dt`
 
-### 2. Runge-Kutta Method (RK4)
-A fourth-order numerical method that uses four intermediate slope calculations to achieve higher accuracy.
+**Features:**
+- Analytical solution calculation
 
-## Objectives
+- Numerical approximation using Euler's Method
 
-- Implement numerical methods in MATLAB.
-- Solve a system of ordinary differential equations.
-- Study predator-prey population dynamics.
-- Explore the differences between Euler and RK4 methods.
+- Visualization of analytical and numerical solutions
 
-## How to Run
+- Adjustable time step (`dt`) for exploring numerical accuracy
 
-1. Open MATLAB.
-2. Download the MATLAB `.m` file from this repository.
-3. Open the file in MATLAB.
-4. Run the script to execute the numerical simulation.
+The simulation demonstrates how reducing the time step generally improves the accuracy of Euler's Method at the cost of additional computations.
 
-## Technologies Used
+## Repository Structure
+
+| File | Description |
+|---|---|
+| `lotka_volterra.m` | Predator–prey simulations using Euler and RK4 |
+| `parachutist_euler.m` | Analytical and Euler solutions for a falling parachutist |
+| `README.md` | Project documentation |
+
+## Getting Started
+
+1. Install MATLAB or open MATLAB Online.
+2. Clone or download this repository.
+3. Open one of the `.m` files in MATLAB.
+4. Click **Run** to execute the simulation.
+5. Examine the generated figures.
+
+To experiment with numerical accuracy, modify the step-size variable (`dt` in the parachutist simulation or `h` in the Lotka–Volterra simulation).
+
+## Learning Objectives
+
+Through these projects, I aim to:
+
+- Strengthen my understanding of numerical analysis.
+- Implement mathematical algorithms from scratch.
+- Develop practical MATLAB programming skills.
+- Understand the relationship between differential equations and numerical approximations.
+- Explore numerical accuracy, stability and computational efficiency.
+
+## Technologies
 
 - MATLAB
 - Numerical Analysis
+- Ordinary Differential Equations
+- Mathematical Modeling
 
 ## About
 
-This project was developed as part of my learning process in numerical methods, differential equations and MATLAB programming.
+This repository documents my ongoing learning process in numerical methods and scientific computing as a Computer Engineering student.
